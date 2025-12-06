@@ -8,19 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>🎬 ABC Cinema Management System</h1>
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="movies.php">Movies</a>
-            <a href="shows.php">Showtimes</a>
-            <a href="employees.php">Employees</a>
-        </nav>
-    </header>
-
-    <main>
+    <?php include 'header.php'; ?>
+    <main class="index-main">
         <div class="search-bar">
-            <input type="text" placeholder="Search Movies...">
+            <input type="text" placeholder="Search Movies..." id="movie-search">
+            <select id="search-filter">
+                <option>-- Sort By --</option>
+                <option value="asc-by-year">Year (ASC)</option>
+                <option value="desc-by-year">Year (DESC)</option>
+            </select>
         </div>
 
         <section class="movie-list">
@@ -32,7 +28,8 @@
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='movie-card'>
                             <h3>".$row['title']."</h3>
-                            <p><strong>Year:</strong> ".$row['year']."</p>
+                            <p><strong>Movie ID:</strong> ".$row['movieid']."</p>
+                            <p><strong>Year:</strong><span class='movie-year'> ".$row['year']."</span></p>
                             <p><strong>Duration:</strong> ".$row['duration']." mins</p>
                           </div>";
                 }
@@ -42,9 +39,7 @@
         ?>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2025 ABC Cinema Management System</p>
-    </footer>
+    <script src="index.js"></script>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
