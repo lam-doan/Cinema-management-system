@@ -21,7 +21,13 @@
 
         <section class="movie-list">
         <?php 
-            $sql = "SELECT * FROM movie";
+            $sql = "SELECT m.movieid, m.title, m.description, m.year, m.duration,
+                        GROUP_CONCAT(g.name SEPARATOR ', ') AS genres
+                    FROM movie m
+                    LEFT JOIN moviegenre mg ON m.movieid = mg.movieid
+                    LEFT JOIN genre g ON mg.genreid = g.genreid
+                    GROUP BY m.movieid, m.title, m.description, m.year, m.duration";
+
             $result = mysqli_query($conn, $sql);
 
             if ($result && mysqli_num_rows($result) > 0) {
@@ -29,15 +35,18 @@
                     echo "<div class='movie-card'>
                             <h3>".$row['title']."</h3>
                             <p><strong>Movie ID:</strong> ".$row['movieid']."</p>
+                            <p><strong>Description:</strong> ".$row['description']."</p>
                             <p><strong>Year:</strong><span class='movie-year'> ".$row['year']."</span></p>
                             <p><strong>Duration:</strong> ".$row['duration']." mins</p>
-                          </div>";
+                            <p><strong>Genres:</strong> ".$row['genres']."</p>
+                        </div>";
                 }
             } else {
                 echo "<p>No movies found.</p>";
             }
         ?>
         </section>
+
     </main>
     <script src="index.js"></script>
     <?php include 'footer.php'; ?>
