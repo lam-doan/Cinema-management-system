@@ -13,7 +13,11 @@
         <div class="search-bar">
             <input type="text" placeholder="Search Movies..." id="movie-search">
             <select id="search-filter">
-                <option>-- Sort By --</option>
+                <option value="">-- Sort By --</option>
+                <option value="asc-by-id">Movie ID (ASC)</option>
+                <option value="desc-by-id">Movie ID (DESC)</option>
+                <option value="asc-by-title">Title (A-Z)</option>
+                <option value="desc-by-title">Title (Z-A)</option>
                 <option value="asc-by-year">Year (ASC)</option>
                 <option value="desc-by-year">Year (DESC)</option>
             </select>
@@ -33,10 +37,10 @@
             if ($result && mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='movie-card'>
-                            <h3>".$row['title']."</h3>
-                            <p><strong>Movie ID:</strong> ".$row['movieid']."</p>
+                            <h3 class='movie-title'>".$row['title']."</h3>
+                            <p><strong>Movie ID:</strong> <span class='movie-id'>".$row['movieid']."</span></p>
                             <p><strong>Description:</strong> ".$row['description']."</p>
-                            <p><strong>Year:</strong><span class='movie-year'> ".$row['year']."</span></p>
+                            <p><strong>Year:</strong> <span class='movie-year'>".$row['year']."</span></p>
                             <p><strong>Duration:</strong> ".$row['duration']." mins</p>
                             <p><strong>Genres:</strong> ".$row['genres']."</p>
                         </div>";
