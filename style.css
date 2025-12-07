@@ -336,8 +336,9 @@ footer {
 
 /* Back to Movies link */
 .back-link {
-    display: inline-block;
-    margin: 20px 20px;
+    display: block;
+    margin: 20px auto;
+    width: fit-content;
     padding: 12px 24px;
     background: #360185;
     color: #fff;
@@ -375,3 +376,23 @@ footer {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
+
+/* Update Movie Page Styles */
+/* Update button */
+.update-btn {
+    background: #2980b9;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#option_to_change, #option_to_identify {
+    border-radius: 8px;
+}
+

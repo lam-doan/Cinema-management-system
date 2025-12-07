@@ -27,6 +27,7 @@
         <div id="update" class="tab-content">
             <?php include 'update_form.php'; ?>
         </div>
+        <a href='../index.php' class='back-link'>Back to Movies</a>
     </main>
     <script src="movies.js"></script>
     <?php include '../footer.php'; ?>

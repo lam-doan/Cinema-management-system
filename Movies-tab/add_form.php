@@ -23,13 +23,13 @@
         <label for="duration">Duration (mins):</label>
         <input type="number" id="duration" name="duration" required>
     </div>
-    <input type="submit" value="Add Movie">
+    <input type="submit" name="add_movie" value="Add Movie">
 </form>
 
 <?php
     include '../connect.php';
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_movie'])) {
         $movieid     = mysqli_real_escape_string($conn, $_POST['id']);
         $released    = mysqli_real_escape_string($conn, $_POST['release']);
         $title       = mysqli_real_escape_string($conn, $_POST['title']);
@@ -42,7 +42,6 @@
 
         if (mysqli_query($conn, $sql)) {
             echo "<p class='success'>Movie added successfully!</p>";
-            echo "<a href='movies.php' class='back-link'>Back to Movies</a>";
         } else {
             echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
         }
