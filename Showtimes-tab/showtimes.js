@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (type === "update") {
       action = "update_showtime.php";
       html = `
-        <label>Showtime Name:</label><input type="text" name="showname" required>
+        <label>Movie Name:</label><input type="text" name="moviename" required>
         <label>Auditorium Name:</label><input type="text" name="auditoriumname" required>
         <label>New Format:</label><input type="text" name="format" required>
         <label>New Start Time:</label><input type="datetime-local" name="start" required>

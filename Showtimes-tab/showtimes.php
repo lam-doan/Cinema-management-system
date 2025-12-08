@@ -97,7 +97,7 @@
             </div>
             </div>
         </div>
-        <a href='../index.php' class='back-link'>Back to Movies</a>
+        <a href='../index.php' class='back-link'>Back to Home</a>
     </main>
     <?php include '../footer.php'; ?>
     <script src="showtimes.js"></script>

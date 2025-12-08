@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $start_dt = str_replace('T', ' ', $start) . ':00';
         $end_dt = str_replace('T', ' ', $end) . ':00';
 
-        // Delete from shows table
+        // Update from shows table
         $sql_update = "UPDATE shows
-                       SET start = $start_dt, end = $end_dt, format = $format
-                       WHERE auditoriumid = '$auditorium_id' AND movieid = '$movie_id';
+                       SET start = '$start_dt', end = '$end_dt', format = '$format'
+                       WHERE auditoriumid = '$auditorium_id' AND movieid = '$movie_id'
                        ";
 
         if (mysqli_query($conn, $sql_update)) {
