@@ -396,3 +396,90 @@ footer {
     border-radius: 8px;
 }
 
+.employee-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two columns */
+    gap: 20px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.employee-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-form label {
+    font-weight: 600;
+    color: #360185;
+    margin-bottom: 6px;
+    font-size: 0.9em;
+}
+
+.employee-form input[type="text"],
+.employee-form input[type="number"],
+.employee-form input[type="date"] {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95em;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.employee-form input:focus {
+    border-color: #360185;
+    box-shadow: 0 0 8px rgba(54,1,133,0.25);
+}
+
+.employee-form input[type="submit"] {
+    grid-column: span 2; /* button across both columns */
+    padding: 14px;
+    background: #360185;
+    color: #fff;
+    font-size: 1.05em;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.employee-form input[type="submit"]:hover {
+    background: #4a0fa8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.employee-main h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    color: #360185;
+    text-align: center;
+    margin: 30px 0 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    position: relative;
+}
+
+.employee-main h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #360185;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+.employee-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+}
