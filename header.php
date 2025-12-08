@@ -5,5 +5,6 @@
     <a href="/cinema_project/Movies-tab/movies.php">Movies</a>
     <a href="/cinema_project/shows.php">Showtimes</a>
     <a href="/cinema_project/Employees-tab/employees.php">Employees</a>
+    <a href="/cinema_project/Showtimes-tab/showtimes.php">Showtimes</a>
   </nav>
 </header>
