@@ -27,7 +27,7 @@
         <div id="update" class="tab-content">
             <?php include 'update_employee.php'; ?>
         </div>
-        <a href='../index.php' class='back-link'>Back to Employee</a>
+        <a href='../index.php' class='back-link'>Back to Home</a>
     </main>
     <script src="employees.js"></script> 
     <?php include '../footer.php'; ?>
