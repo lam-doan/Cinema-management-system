@@ -9,15 +9,15 @@
     </div>
     <div>
         <label for="last name">Last Name:</label>
-        <input type="text" id="last name" name="last name" required>
+        <input type="text" id="last_name" name="last_name" required>
     </div>
     <div>
         <label for="first name">First name:</label>
-        <input type="text" id="first name" name="first name" required>
+        <input type="text" id="first_name" name="first_name" required>
     </div>
     <div>
         <label for="street number">Street Number:</label>
-        <input type="number" id="street number" name="street number" required>
+        <input type="number" id="street_number" name="street_number" required>
     </div>
     <div>
         <label for="city">City:</label>
@@ -44,12 +44,12 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_employee'])) {
         $EmployeeId  = mysqli_real_escape_string($conn, $_POST['id']);
         $Password  = mysqli_real_escape_string($conn, $_POST['password']);
-        $Fname = mysqli_real_escape_string($conn, $_POST['first name']);
-        $Lname = mysqli_real_escape_string($conn, $_POST['last name']);
-        $street_number = mysqli_real_escape_string($conn, $_POST['street number']);
+        $Fname = mysqli_real_escape_string($conn, $_POST['first_name']);
+        $Lname = mysqli_real_escape_string($conn, $_POST['last_name']);
+        $street_number = mysqli_real_escape_string($conn, $_POST['street_number']);
         $City = mysqli_real_escape_string($conn, $_POST['city']);
         $State = mysqli_real_escape_string($conn, $_POST['state']);
-        $Zip = mysqli_real_escape_string($conn, $_POST['zio']);
+        $Zip = mysqli_real_escape_string($conn, $_POST['zip']);
         $Phone = mysqli_real_escape_string($conn, $_POST['phone']);
 
         
