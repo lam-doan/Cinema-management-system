@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("showtimeForm");
   const fields = document.getElementById("form-fields");
+  const formContainer = document.getElementById("form-container");
+  const buttons = document.querySelectorAll(".tab-button");
+  const tabContents = document.querySelectorAll(".tab-content");
 
   function renderForm(type) {
     let html = "";
@@ -41,11 +44,26 @@ document.addEventListener("DOMContentLoaded", () => {
   renderForm("add");
 
   // tab switching
-  document.querySelectorAll(".tab-button").forEach(btn => {
+  buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".tab-button").forEach(b => b.classList.remove("active"));
+      // remove active class from all buttons
+      buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
-      renderForm(btn.dataset.tab);
+
+      // hide all tab contents
+      tabContents.forEach(tc => tc.classList.remove("active"));
+
+      // show the selected tab content
+      const target = document.getElementById(btn.dataset.tab);
+      if (target) target.classList.add("active");
+
+      // hide form if Popular tab is clicked
+      if (btn.dataset.tab === "popular-content") {
+        formContainer.style.display = "none";
+      } else {
+        formContainer.style.display = "block";
+        renderForm(btn.dataset.tab); // only render when not popular
+      }
     });
   });
 });

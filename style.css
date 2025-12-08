@@ -418,6 +418,30 @@ footer {
     border-radius: 8px;
 }
 
+#form-container {
+  transition: opacity 0.3s ease;
+}
+#form-container[style*="display: none"] {
+  opacity: 0;
+}
+
+.no-popular {
+  margin: 20px auto;
+  padding: 15px 20px;
+  max-width: 600px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95em;
+  color: #555;
+  background: #f9f9f9;
+  border-left: 6px solid #360185;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Employees Page Styles */
+
 .employee-form {
     display: grid;
     grid-template-columns: 1fr 1fr; /* two columns */
@@ -538,6 +562,7 @@ footer {
   gap: 15px;
   margin: 25px 0;
 }
+
 .showtimes-main h2::after {
     content: "";
     display: block;
@@ -633,4 +658,29 @@ footer {
 
 #showtimeForm button:hover {
   background: #5a2ea6;
+}
+
+.popular-table table {
+  width: 80%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.popular-table th, .popular-table td {
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.popular-table th {
+  background: linear-gradient(135deg, #360185, #5a2ea6);
+  color: #fff;
+  font-weight: 600;
+}
+
+.popular-table td {
+  color: #333;
 }

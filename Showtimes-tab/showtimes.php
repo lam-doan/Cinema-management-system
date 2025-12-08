@@ -76,13 +76,19 @@
                     <button class="tab-button active" data-tab="add">Add Showtimes</button>
                     <button class="tab-button" data-tab="delete">Delete Showtimes</button>
                     <button class="tab-button" data-tab="update">Update Showtimes</button>
+                    <button class="tab-button" data-tab="popular-content">Popular Showtimes</button>
                 </nav>
 
-                <form id="showtimeForm" method="POST">
-                    <div id="form-fields"></div>
-                    <button type="submit" id="form-submit">Submit</button>
-
-                </form>
+                <div id="popular-content" class="tab-content">
+                    <?php include 'popular_showtime.php'; ?>
+                </div>
+                
+                <div id="form-container">
+                    <form id="showtimeForm" method="POST">
+                        <div id="form-fields"></div>
+                        <button type="submit" id="form-submit">Submit</button>
+                    </form>
+                </div>
                 <?php if (isset($_GET['success'])): ?>
                     <?php if ($_GET['success'] === 'added'): ?>
                         <div class="success">✅ Showtime added successfully!</div>
