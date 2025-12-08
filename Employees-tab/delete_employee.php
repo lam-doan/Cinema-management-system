@@ -22,7 +22,6 @@ if ($result && mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo "
         <div class='employee-card'>
-            <h3>{$row['title']}</h3>
             <p class='employee-id'><strong>Employee ID:</strong> {$row['EmployeeId']}</p>
             <p><strong>Name:</strong> {$row['Fname']} {$row['Lname']} </p>
             <form method='POST' action='employees.php'>

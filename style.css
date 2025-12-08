@@ -463,6 +463,24 @@ footer {
     text-align: center;
     margin: 30px 0 20px;
 }
+
+.employee-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.employee-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
 /* Showtimes Page Styles */
 .showtimes-main {
     flex: 1;
