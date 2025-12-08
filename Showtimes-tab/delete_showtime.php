@@ -2,12 +2,10 @@
 include '../connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST['moviename'], $_POST['auditoriumname'], $_POST['format'], $_POST['start'], $_POST['end'])) {
+    if (isset($_POST['moviename'], $_POST['auditoriumname'], $_POST['start'])) {
         $moviename = mysqli_real_escape_string($conn, $_POST['moviename']);
         $auditoriumname = mysqli_real_escape_string($conn, $_POST['auditoriumname']);
-        $format = mysqli_real_escape_string($conn, $_POST['format']);
         $start = mysqli_real_escape_string($conn, $_POST['start']);
-        $end = mysqli_real_escape_string($conn, $_POST['end']);
 
         // Look up movieid
         $sql_movie = "SELECT movieid FROM movie WHERE title = '$moviename'";
@@ -31,14 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Convert datetime-local format (YYYY-MM-DDTHH:MM) to MySQL DATETIME (YYYY-MM-DD HH:MM:SS)
         $start_dt = str_replace('T', ' ', $start) . ':00';
-        $end_dt = str_replace('T', ' ', $end) . ':00';
 
-        // Insert into shows table
-        $sql_insert = "INSERT INTO shows (movieid, auditoriumid, format, start, end) 
-                       VALUES ('$movie_id', '$auditorium_id', '$format', '$start_dt', '$end_dt')";
+        // Delete from shows table
+        $sql_delete = "DELETE FROM shows
+                       WHERE auditoriumid = '$auditorium_id' AND movieid = '$movie_id'AND start = '$start_dt'
+                       ";
 
-        if (mysqli_query($conn, $sql_insert)) {
-            header("Location: showtimes.php?success=added");
+        if (mysqli_query($conn, $sql_delete)) {
+            header("Location: showtimes.php?success=deleted");
             exit;
         } else {
             header("Location: showtimes.php?error=" . urlencode(mysqli_error($conn)));

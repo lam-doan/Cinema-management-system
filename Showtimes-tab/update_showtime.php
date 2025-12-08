@@ -33,12 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $start_dt = str_replace('T', ' ', $start) . ':00';
         $end_dt = str_replace('T', ' ', $end) . ':00';
 
-        // Insert into shows table
-        $sql_insert = "INSERT INTO shows (movieid, auditoriumid, format, start, end) 
-                       VALUES ('$movie_id', '$auditorium_id', '$format', '$start_dt', '$end_dt')";
+        // Delete from shows table
+        $sql_update = "UPDATE shows
+                       SET start = $start_dt, end = $end_dt, format = $format
+                       WHERE auditoriumid = '$auditorium_id' AND movieid = '$movie_id';
+                       ";
 
-        if (mysqli_query($conn, $sql_insert)) {
-            header("Location: showtimes.php?success=added");
+        if (mysqli_query($conn, $sql_update)) {
+            header("Location: showtimes.php?success=updated");
             exit;
         } else {
             header("Location: showtimes.php?error=" . urlencode(mysqli_error($conn)));

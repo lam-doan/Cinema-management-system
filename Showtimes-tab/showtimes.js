@@ -18,15 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (type === "delete") {
       action = "delete_showtime.php";
       html = `
-        <label>Showtime ID:</label><input type="text" name="showid" required>
+        <label>Movie Name:</label><input type="text" name="moviename" required>
+        <label>Auditorium Name:</label><input type="text" name="auditoriumname" required>
+        <label>Start Time:</label><input type="datetime-local" name="start" required>
       `;
     } else if (type === "update") {
       action = "update_showtime.php";
       html = `
         <label>Showtime Name:</label><input type="text" name="showname" required>
-        <label>Showtime Name:</label><input type="text" name="showname" required>
-        <label>New Start Time:</label><input type="datetime-local" name="start">
-        <label>New End Time:</label><input type="datetime-local" name="end">
+        <label>Auditorium Name:</label><input type="text" name="auditoriumname" required>
+        <label>New Format:</label><input type="text" name="format" required>
+        <label>New Start Time:</label><input type="datetime-local" name="start" required>
+        <label>New End Time:</label><input type="datetime-local" name="end" required>
       `;
     }
 

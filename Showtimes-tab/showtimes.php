@@ -81,11 +81,18 @@
                 <form id="showtimeForm" method="POST">
                     <div id="form-fields"></div>
                     <button type="submit" id="form-submit">Submit</button>
+
                 </form>
                 <?php if (isset($_GET['success'])): ?>
+                    <?php if ($_GET['success'] === 'added'): ?>
                         <div class="success">✅ Showtime added successfully!</div>
-                        <?php elseif (isset($_GET['error'])): ?>
-                        <div class="error">❌ Error: <?php echo htmlspecialchars($_GET['error']); ?></div>
+                    <?php elseif ($_GET['success'] === 'deleted'): ?>
+                        <div class="success">✅ Showtime deleted successfully!</div>
+                    <?php elseif ($_GET['success'] === 'updated'): ?>
+                        <div class="success">✅ Showtime updated successfully!</div>
+                    <?php endif; ?>
+                <?php elseif (isset($_GET['error'])): ?>
+                    <div class="error">❌ Error: <?php echo htmlspecialchars($_GET['error']); ?></div>
                 <?php endif; ?>
             </div>
             </div>
