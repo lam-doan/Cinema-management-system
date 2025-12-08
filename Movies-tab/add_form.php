@@ -43,7 +43,8 @@
         if (mysqli_query($conn, $sql)) {
             echo "<p class='success'>Movie added successfully!</p>";
         } else {
-            echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+            echo "<p class='error'>Sorry, we couldn’t add this movie. 
+            It looks like a movie with the same ID already exists.</p>";
         }
     }
     mysqli_close($conn);

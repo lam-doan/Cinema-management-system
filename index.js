@@ -34,6 +34,5 @@ function handleSort() {
         if (filter === 'desc-by-id') return idB - idA;
         return 0;
     });
-
     movies.forEach(movie => movieList.appendChild(movie));
 };
